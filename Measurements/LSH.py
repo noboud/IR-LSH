@@ -78,7 +78,7 @@ class LSHIndex:
         # Find the nearest bins to satisfy K results
         candidate_vectors = self.__find_k_neighbours(hash_code, K)
     
-        # Calculate Euclidean distance
+        # Calculate squared Euclidean distance
         distances = np.sum((candidate_vectors[:,1:] - vector) ** 2, axis=1)
         sorted_indices = np.argsort(distances)[:K]
         
@@ -88,7 +88,7 @@ class LSHIndex:
 
     # Save function for storing the index as a npz file
     def save(self, path):
-        np.savez(
+        np.savez_compressed(
             path,
             properties = {
                 "dim": self._dim,
@@ -98,6 +98,10 @@ class LSHIndex:
             },
             binned_vectors = self._binned_vectors
         )
+
+    # Get all the binned vectors for debugging
+    def get_binned_vectors(self):
+        return self._binned_vectors
 
     # Loading the object from a npz file (to avoid having to rebuild it each time, and to be able to see index size after quantizing)
     @classmethod
