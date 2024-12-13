@@ -12,7 +12,7 @@ Data such as the TREC documents and vectors are excluded from this repository.
 
 ## TREC results
 
-For our measurements we used the [TREC evaluation tools](https://github.com/usnistgov/trec_eval), our created run files and evaluation results are stored in [Measurements/TREC](/Measurements/Trec/), the files are stored as `name_r_x`. Where `r` is the value of `r` in the hash function and `x` represents the `nbits`.
+For our measurements we used the [TREC evaluation tools](https://github.com/usnistgov/trec_eval), our created run files and evaluation results are stored in [Measurements/TREC](/Measurements/TREC/), the files are stored as `name_r_x`. Where `r` is the value of `r` in the hash function and `x` represents the `nbits`.
 
 ## System
 
